@@ -1,0 +1,7 @@
+default: -p html_report -p hml
+
+### Ambientes ###
+hml: AMBIENTE=hml
+
+### Reports ###
+html_report: --format pretty -f html -o reports/feature_report.html
