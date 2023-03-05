@@ -1,5 +1,5 @@
 module REST
-    def users
-        Rest::Users.new
+    def marvel
+        Rest::Marvel.new
     end
 end

@@ -1,4 +1,4 @@
-# language: pt
+#language: pt
 
 @apiMarvel
 Funcionalidade: Api Marvel
@@ -6,14 +6,14 @@ Funcionalidade: Api Marvel
 
   @stories
   Cenario: Listar stories da Marvel
-    Quando faço uma requisição GET para api stories com limite de 5 registros
-    Entao o retorno da api stories deve ser 200
-    E retornar a lista de stories
+    Quando faço uma requisição GET para api /stories com limite de 5 registros
+    Entao o retorno da api /stories deve ser 200
+    E retornar a lista de stories com 5 registros
 
   @characters
   Esquema do Cenario: Listar personagem da Marvel
-    Quando faço uma requisição GET para api characters passando um <id>
-    Entao o retorno da api characters deve ser <status_code>
+    Quando faço uma requisição GET para api /characters passando um <id>
+    Entao o retorno da api /characters deve ser <status_code>
     E retornar o personagem "<characters>"
 
   Exemplos: 
@@ -24,6 +24,6 @@ Funcionalidade: Api Marvel
     
   @characters_invalid
   Cenario: Não deve listar personagem da Marvel
-    Quando faço uma requisição GET para api characters passando um 123456
-    Entao o retorno da api characters deve ser 404
+    Quando faço uma requisição GET para api /characters passando um 123456
+    Entao o retorno da api /characters deve ser 404
     E retornar que o personagem não existe
