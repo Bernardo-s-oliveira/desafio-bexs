@@ -26,7 +26,6 @@ Entao('o retorno da api characters deve ser {int}') do |status_code|
 end
 
 Entao('retornar o personagem {string}') do |characters|
-  #puts @request_characters.code
   expect(@request_characters['data']['results'][0]['name']).to eq characters
 end
 
