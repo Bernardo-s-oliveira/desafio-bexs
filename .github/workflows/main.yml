@@ -1,9 +1,9 @@
-name: Run Cucumber tests
+name: Run Marvel
 
 on: [push]
 
 jobs:
-  test:
+  test-marvel:
     runs-on: ubuntu-latest
 
     steps:
