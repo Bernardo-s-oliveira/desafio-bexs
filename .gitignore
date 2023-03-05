@@ -1,1 +1,2 @@
-features/reports
+./reports
+.rubocop.yml
