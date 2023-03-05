@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request: 
+   branches: [main]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+  marvel-tests:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout
+     uses: actions/checkout@v2
+
+   - name: Setup Ruby
+     uses: ruby/setup-ruby@v1
+     with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+   - name: Run login tests
+     run: cucumber -t@apiMarvel
+   
