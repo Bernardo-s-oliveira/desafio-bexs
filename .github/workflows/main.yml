@@ -1,28 +1,24 @@
-name: ci
+name: Run Cucumber tests
 
-on:
-  push:
-    branches: [main]
-  pull_request: 
-   branches: [main]
+on: [push]
 
-jobs: 
-  marvel-tests:
+jobs:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.1.3
-        bundler-cache: true
 
     - name: Install dependencies
       run: |
         gem install bundler
         bundle install
-    - name: Run Cucumber
+
+    - name: Run Cucumber tests
       run: |
         cucumber -t@apiMarvel
