@@ -19,6 +19,6 @@ jobs:
       ruby-version: 2.7
       bundler-cache: true
 
-   - name: Run login tests
+   - name: Run marvel tests
      run: cucumber -t@apiMarvel
    
