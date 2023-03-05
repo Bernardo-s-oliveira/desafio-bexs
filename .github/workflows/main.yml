@@ -1,4 +1,4 @@
-name: test-marvel
+name: TEST-MARVEL
 
 on:
   push:
