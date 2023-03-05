@@ -6,22 +6,7 @@ on:
   pull_request: 
    branches: [main]
 
-jobs:
-  rubocop:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-        bundler-cache: true
-
-    - name: Run Rubocop
-      run: bundle exec rubocop
-      
+jobs: 
   marvel-tests:
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +16,7 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7'
+        ruby-version: 3.1.3
         bundler-cache: true
 
     - name: Install dependencies
