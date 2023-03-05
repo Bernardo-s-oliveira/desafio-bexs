@@ -1,24 +1,37 @@
-name: Run Marvel
+name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  MARVEL_PUBLIC_KEY: ${{ secrets.MARVEL_PUBLIC_KEY }}
+  MARVEL_PRIVATE_KEY: ${{ secrets.MARVEL_PRIVATE_KEY }}
 
 jobs:
-  test-marvel:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Setup Ruby
+    - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.1.3
+        ruby-version: 3.1
 
     - name: Install dependencies
       run: |
         gem install bundler
-        bundle install
+        bundle install --jobs 4 --retry 3
 
-    - name: Run Cucumber tests
-      run: |
-        cucumber -t@apiMarvel
+    - name: Run tests
+      run: cucumber -t@apiMarvel
+      env:
+        MARVEL_PUBLIC_KEY: ${{ secrets.MARVEL_PUBLIC_KEY }}
+        MARVEL_PRIVATE_KEY: ${{ secrets.MARVEL_PRIVATE_KEY }}
