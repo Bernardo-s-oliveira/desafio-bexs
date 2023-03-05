@@ -25,3 +25,5 @@ Uma vez que todas as dependências já estão listadas no arquivo Gemfile, basta
 `features/step_definitions` - Lógica e regra de negocio da aplicação
 
 `features/suport` - Configuração do que será utilizado em todo o projeto,`base_uri`, `ambiente` e métodos que instanciam as classes de requests
+
+OBS: as chaves foram adicionada diretamente em variável de ambiente do computador.
